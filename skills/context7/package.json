@@ -1,0 +1,8 @@
+{
+  "name": "context7-skill",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "citty": "^0.1.6"
+  }
+}
