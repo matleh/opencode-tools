@@ -1,0 +1,8 @@
+{
+  "name": "shadcn-skill",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "citty": "^0.1.6"
+  }
+}
