@@ -10,8 +10,8 @@ export const BeansPlugin = async ({ $, directory }) => {
     const hasConfig = await $`test -f ${directory}/.beans.yml`.quiet()
 
     if (hasBeans.exitCode === 0 && hasConfig.exitCode === 0) {
-      const result = await $`beans prime`.quiet()
-      beansInstructions = result.stdout
+      const result = await $`beans prime`.cwd(directory).quiet()
+      beansInstructions = result.stdout.toString()
     }
   } catch (e) {
     // beans not available or not configured - silently skip
