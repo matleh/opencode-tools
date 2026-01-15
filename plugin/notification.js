@@ -34,8 +34,13 @@ export const NotificationPlugin = async ({ project, client, $, directory, worktr
       }
 
       // Send notification when permission is requested
-      if (event.type === "permission.updated") {
-        await notify("Permission required!", "Glass")
+      if (event.type === "permission.asked") {
+        await notify("Agent needs permission!", "Glass")
+      }
+
+      // Send notification when agent asks a question
+      if (event.type === "question.asked") {
+        await notify("Agent has a question!", "Glass")
       }
     },
   }
