@@ -1,24 +1,3 @@
-const appendix = `
-Appendix: Modifying Bean Body Content
-IMPORTANT: Never directly edit bean files in .beans/ or wherever beans are stored. The location is configurable and may be outside the repository. Always use the beans CLI.
-Modifying Bean Bodies
-Use the temp file workflow to update bean body content (checklists, descriptions, notes):
-# 1. Read bean body to temp file
-beans show <id> --body-only > tmp-bean-<id>.md
-# 2. Modify the temp file (e.g., check off checklist items)
-#    Use Read/Edit/Write tools to modify tmp-bean-<id>.md
-# 3. Update the bean
-beans update <id> --body-file tmp-bean-<id>.md
-# 4. Clean up
-rm tmp-bean-<id>.md
-For metadata changes (status, priority, title, type, tags, relationships), use CLI flags directly:
-beans update <id> --status completed
-beans update <id> --priority high
-beans update <id> --title "New title"
-Concurrency: Only one agent should modify a given bean at a time. Multiple agents can safely modify different beans concurrently.
-`;
-
-
 export const BeansPlugin = async ({ $, directory }) => {
   // Check if beans CLI exists and project has beans config
   let beansInstructions = ""
