@@ -1,4 +1,9 @@
 export const NotificationPlugin = async ({ project, client, $, directory, worktree }) => {
+  // Only activate when NOT running in maiflower context
+  if (process.env.MAIFLOWER_WORKFLOW_ID) {
+    return {}
+  }
+
   const notify = async (message, sound = 'default') => {
     const dirname = directory.split('/').filter(Boolean).pop() || 'root'
     
